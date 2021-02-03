@@ -1,5 +1,6 @@
+git clone --recursive https://github.com/korhun/semantic-segmentation.git -b sdcnet
 
-git clone --recursive https://github.com/NVIDIA/semantic-segmentation.git -b sdcnet
+docker build --pull --rm -f "Dockerfile" -t semanticsegmentation:latest .
 
 docker run --rm -it --name semseg -e NVIDIA_DRIVER_CAPABILITIES=compute -p 6006:6006/tcp -p 8888:8888/tcp semanticsegmentation:latest
 
