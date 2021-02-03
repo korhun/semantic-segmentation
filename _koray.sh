@@ -4,8 +4,10 @@ docker login nvcr.io
 # https://ngc.nvidia.com/setup/api-key
 
 docker build --pull --rm -f "Dockerfile" -t semanticsegmentation:latest .
+# docker build --rm -f "Dockerfile" -t semanticsegmentation:latest .
 
 docker run --rm -it --name semseg -e NVIDIA_DRIVER_CAPABILITIES=compute -p 6006:6006/tcp -p 8888:8888/tcp semanticsegmentation:latest
+# docker run -it --name semseg -e NVIDIA_DRIVER_CAPABILITIES=compute -p 6006:6006/tcp -p 8888:8888/tcp semanticsegmentation:latest
 
 # https://stackoverflow.com/questions/40313633/how-to-copy-files-from-local-machine-to-docker-container-on-windows
 # docker ps --format "{{.Names}}"
